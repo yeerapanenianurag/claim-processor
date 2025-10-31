@@ -90,29 +90,29 @@ This project showcases:
 
 📁 Project Structure
 
-Claim Processor/
+'''   Claim Processor/
 │
 ├── app/
-│   ├── agents/
-│   │   ├── bill_agent.py        → Extracts claim data from bill PDFs
-│   │   ├── discharge_agent.py   → Extracts claim data from discharge PDFs
-│   │   ├── validation_agent.py  → Validates structured claim data
-│   │   └── classifier_agent.py  → Classifies input PDFs
-│   │
-│   ├── ai/
-│   │   └── llm_client.py        → Integrates Gemini API for extraction
-│   │
-│   ├── state/
-│   │   └── claim_state_old.py   → Defines ClaimState class for state tracking
-│   │
-│   ├── agent_orchestrator.py    → Orchestrates agent execution using LangGraph
-│   └── __init__.py
+│ ├── agents/
+│ │ ├── bill_agent.py → Extracts claim data from bill PDFs
+│ │ ├── discharge_agent.py → Extracts claim data from discharge PDFs
+│ │ ├── validation_agent.py → Validates structured claim data
+│ │ └── classifier_agent.py → Classifies input PDFs
+│ │
+│ ├── ai/
+│ │ └── llm_client.py → Integrates Gemini API for extraction
+│ │
+│ ├── state/
+│ │ └── claim_state_old.py → Defines ClaimState class for state tracking
+│ │
+│ ├── agent_orchestrator.py → Orchestrates agent execution using LangGraph
+│ └── init.py
 │
-├── main.py                      → Entry point (FastAPI app)
-├── Dockerfile                   → Containerization setup
-├── .dockerignore                → Excluded files for Docker
-├── requirements.txt             → Dependencies
-├── .env                         → API keys and environment variables
+├── main.py → Entry point (FastAPI app)
+├── Dockerfile → Containerization setup
+├── .dockerignore → Excluded files for Docker
+├── requirements.txt → Dependencies
+├── .env → API keys and environment variables '''
 
 
 
