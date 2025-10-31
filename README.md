@@ -1,4 +1,4 @@
-# 🧠 Claim Processor
+# Claim Processor
 
 > A complete AI-powered claim document processing system built with **LangGraph**, **Gemini API** and **Python**, capable of extracting, structuring, and validating claim data from unstructured PDFs like bills and discharge summaries.
 
@@ -88,7 +88,7 @@ This project showcases:
 
 
 
-**📁 Project Structure**
+📁 Project Structure
 
 Claim Processor/
 │
@@ -113,6 +113,7 @@ Claim Processor/
 ├── .dockerignore                → Excluded files for Docker
 ├── requirements.txt             → Dependencies
 ├── .env                         → API keys and environment variables
+
 
 
 
