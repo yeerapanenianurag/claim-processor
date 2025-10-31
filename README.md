@@ -107,7 +107,8 @@ This project showcases:
 
 ---
 
-## 🧰 Tools & Libraries Used
+## 🧰 Usage of AI tools 
+
 
 | Tool | Purpose |
 |------|----------|
@@ -154,5 +155,23 @@ This project showcases:
 **Issue:** File renamed to `claim_state_old.py`.  
 **Fix:** Updated import path everywhere accordingly.
 
+## 🧠Prompts I used 
 
+### 1.To compare my understanding with given task :
+I have been given an assignment to process insurance claims so i need to build a backend pieline using various LLM,agents and FastAPI services at the backend so that the claim pdf files can be automated using backend pieline replacing manual overload so main issue i will be solving is creating a backend pipeline with multiple agents solving different levels of execution and givin a final verdict of reject or accept how well did i understand the assignmnet based on the given task if i misss anything give me a detailed step by step procedure in terms of how i should plan ot and some key points i need to remember while building the project and also what should be the approach i would be following to create a clean code files
+
+
+### 2 Prompt used to solve the error :
+I'm working on a FastAPI project that uses LangGraph for workflow orchestration. 
+I have a Pydantic class called ClaimState that contains attributes like raw_pdfs`, classified_docs, and structured_claim. 
+While running my app, I'm getting the error of 'ClaimState object has no attribute 'get inside my validation or bill agent. 
+Each agent function takes state: ClaimState as input and modifies it.  Can you explain why this error might occur when accessing state.get() and how to correctly handle data inside such a stateful LangGraph flow? 
+Please show me how to restructre the code so that I can access dictionary-like fields from ClaimState safely without possibly getting the erro
+
+
+
+### 3. Fixing import error :
+I recently refactored my FastAPI project into a modular structure with subfolders like app/agents, app/ai, and app/state. 
+After moving ClaimState into app/state/claim_state_old.py, I'm getting `ModuleNotFoundError: No module named 'app.state.claim_state'.
+How do I correctly import modules across nested directories in Python when running a FastAPI app with uvicorn, especially when the app is inside a subfolder?
 
