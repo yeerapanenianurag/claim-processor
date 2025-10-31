@@ -54,34 +54,20 @@ This project showcases:
 ---
 
 ## 🧩 Architecture Overview
-+---------------------+
-|  PDF Upload (API)   |
-+---------------------+
-           |
-           ▼
-+---------------------+
-|  Classifier Agent   | → Identifies doc type (bill/discharge)
-+---------------------+
-           |
-           ▼
-+---------------------+
-|  Bill Agent         | → Extracts structured data from bills
-+---------------------+
-           |
-           ▼
-+---------------------+
-|  Discharge Agent    | → Extracts structured data from discharge summaries
-+---------------------+
-           |
-           ▼
-+---------------------+
-|  Validation Agent   | → Validates claim completeness and consistency
-+---------------------+
-           |
-           ▼
-+---------------------+
-|  Final Decision     | → Approve / Reject / Manual Review
-+---------------------+
+| **Stage**               | **Description**                                                                                                                             |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| 🟩 **PDF Upload (API)** | The process starts when users upload claim-related PDFs (bills, discharge summaries, etc.) through the FastAPI endpoint.                    |
+| 🔽                      |                                                                                                                                             |
+| 🧠 **Classifier Agent** | Analyzes the PDF text and identifies the type of document (Bill / Discharge / Other).                                                       |
+| 🔽                      |                                                                                                                                             |
+| 💰 **Bill Agent**       | Extracts structured data such as total amount, hospital name, patient details, and claim amount from bill PDFs using the Gemini API.        |
+| 🔽                      |                                                                                                                                             |
+| 🏥 **Discharge Agent**  | Extracts medical and discharge summary data like diagnosis, treatment details, admission/discharge dates, etc.                              |
+| 🔽                      |                                                                                                                                             |
+| ✅ **Validation Agent**  | Validates extracted data for completeness, logical consistency, date correctness, and claim amount reasonability.                           |
+| 🔽                      |                                                                                                                                             |
+| ⚖️ **Final Decision**   | Generates a structured output — marking the claim as **Approved**, **Rejected**, or **Requires Manual Review** based on validation results. |
+
 
 
 
@@ -90,29 +76,26 @@ This project showcases:
 
 📁 Project Structure
 
-'''   Claim Processor/
-│
-├── app/
-│ ├── agents/
-│ │ ├── bill_agent.py → Extracts claim data from bill PDFs
-│ │ ├── discharge_agent.py → Extracts claim data from discharge PDFs
-│ │ ├── validation_agent.py → Validates structured claim data
-│ │ └── classifier_agent.py → Classifies input PDFs
-│ │
-│ ├── ai/
-│ │ └── llm_client.py → Integrates Gemini API for extraction
-│ │
-│ ├── state/
-│ │ └── claim_state_old.py → Defines ClaimState class for state tracking
-│ │
-│ ├── agent_orchestrator.py → Orchestrates agent execution using LangGraph
-│ └── init.py
-│
-├── main.py → Entry point (FastAPI app)
-├── Dockerfile → Containerization setup
-├── .dockerignore → Excluded files for Docker
-├── requirements.txt → Dependencies
-├── .env → API keys and environment variables '''
+| **Path / File**             | **Description**                                                |
+| --------------------------- | -------------------------------------------------------------- |
+| **Claim Processor/**        | Root project directory                                         |
+| ├── **app/**                | Main application folder                                        |
+| ├── **app/agents/**         | Contains all intelligent processing agents                     |
+| │ ├── `bill_agent.py`       | Extracts structured claim data from bill PDFs                  |
+| │ ├── `discharge_agent.py`  | Extracts structured data from discharge summaries              |
+| │ ├── `validation_agent.py` | Validates structured claim data for accuracy and completeness  |
+| │ └── `classifier_agent.py` | Classifies uploaded PDFs as bill/discharge/other               |
+| ├── **app/ai/**             | AI integration layer                                           |
+| │ └── `llm_client.py`       | Integrates Gemini API for claim data extraction                |
+| ├── **app/state/**          | Handles state management                                       |
+| │ └── `claim_state_old.py`  | Defines the `ClaimState` class used to track workflow progress |
+| ├── `agent_orchestrator.py` | Orchestrates agent execution using LangGraph                   |
+| ├── `__init__.py`           | Marks `app/` as a Python package                               |
+| **main.py**                 | FastAPI entry point for starting the backend server            |
+| **Dockerfile**              | Defines containerization setup for the project                 |
+| **.dockerignore**           | Lists files excluded during Docker image build                 |
+| **requirements.txt**        | Lists all project dependencies                                 |
+| **.env**                    | Stores environment variables like API keys (Gemini, etc.)      |
 
 
 
